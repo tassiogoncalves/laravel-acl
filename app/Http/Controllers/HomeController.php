@@ -34,7 +34,7 @@ class HomeController extends Controller
 
         $post = Post::find($idPost);
         // $this->authorize('update-post', $post);
-        if(Gate::denies('update-post', $post))
+        if(Gate::denies('edit_post', $post))
             abort(403, 'Não autorizado!');
         
         return view('post-update', compact('post'));

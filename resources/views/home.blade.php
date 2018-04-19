@@ -4,17 +4,17 @@
 <div class="container">
     @forelse ($posts as $post)
     <article> 
-        
-            <h1> {{ $post->title}} </h1>
-            <p>
-                {{ $post->description}}
-            </p>
-            <b>{{ $post->user->name }}</b>
-            <br>
-            @can('update-post', $post)
+            @can('visualizar_post')
+                <h1> {{ $post->title}} </h1>
+                <p>
+                    {{ $post->description}}
+                </p>
+                <b>{{ $post->user->name }}</b>
+                <br>
                 <a href="{{ url("/post/$post->id/update") }}">Editar</a>
+                <hr>
             @endcan
-            <hr>
+           
         
     </article>
     @empty
